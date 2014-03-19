@@ -13,16 +13,17 @@ class Fullness
   end
   
   def to_s
+    "Phase: " + 
     if @percent <= 10
-      "Phase: New"
+      "New"
     elsif @percent > 10 && @percent <= 45
-      "Phase: #{display_direction} Crescent"
+      "#{display_direction} Crescent"
     elsif is_quarter?
-      "Phase: #{display_direction} Quarter"
+      "#{display_direction} Quarter"
     elsif @percent > 55 && @percent <= 90
-      "Phase: #{display_direction} Gibbous"
+      "#{display_direction} Gibbous"
     else 
-      "Phase: Full"
+      "Full"
     end
   end
   
