@@ -14,13 +14,13 @@ class Fullness
   
   def to_s
     "Phase: " + 
-    if @percent <= 10
+    if is_new?
       "New"
-    elsif @percent > 10 && @percent <= 45
+    elsif is_crescent?
       "#{display_direction} Crescent"
     elsif is_quarter?
       "#{display_direction} Quarter"
-    elsif @percent > 55 && @percent <= 90
+    elsif is_gibbous?
       "#{display_direction} Gibbous"
     else 
       "Full"
@@ -37,6 +37,18 @@ class Fullness
     
   def is_quarter?
     @percent > 45 && @percent <= 55
+  end
+  
+  def is_new?
+    @percent <= 10
+  end
+  
+  def is_crescent?
+    @percent > 10 && @percent <= 45
+  end
+  
+  def is_gibbous?
+    @percent > 55 && @percent <= 90
   end
     
 end

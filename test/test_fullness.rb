@@ -81,4 +81,31 @@ class FullnessTest < Test::Unit::TestCase
     fullness = Fullness.new(50, "-")
     assert_equal "Third", fullness.display_direction
   end
+  
+   def test_fullness_is_new
+    fullness = Fullness.new(5, "+")
+    assert_equal true, fullness.is_new?
+    fullness = Fullness.new(5, "-")
+    assert_equal true, fullness.is_new?
+    fullness = Fullness.new(12, "+")
+    assert_equal false, fullness.is_new?
+   end
+   
+  def test_fullness_is_crescent
+    fullness = Fullness.new(30, "+")
+    assert_equal true, fullness.is_crescent?
+    fullness = Fullness.new(30, "-")
+    assert_equal true, fullness.is_crescent?
+    fullness = Fullness.new(3, "+")
+    assert_equal false, fullness.is_crescent?
+  end   
+
+  def test_fullness_is_gibbous
+    fullness = Fullness.new(60, "+")
+    assert_equal true, fullness.is_gibbous?
+    fullness = Fullness.new(60, "-")
+    assert_equal true, fullness.is_gibbous?
+    fullness = Fullness.new(3, "+")
+    assert_equal false, fullness.is_gibbous?
+  end  
 end
