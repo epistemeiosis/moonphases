@@ -1,6 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 require 'moonphases/moon_data'
+require 'moonphases/fullness'
 
 class MoonPhases
   def initialize
